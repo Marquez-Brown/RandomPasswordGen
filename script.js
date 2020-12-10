@@ -7,8 +7,8 @@ var numbers = "1234567890"
 var lowercase = "abcdefghijklmnopqrstuvwxyz"
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var special = "!@#$%^&*(){}[]+<>/,."
-var length = "8-128"
-var possibleChars = ""
+var length = ""
+var possibleChars = []
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
