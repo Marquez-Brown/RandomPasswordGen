@@ -1,12 +1,14 @@
 // Assignment Code
+console.log("hello, world")
 var generateBtn = document.querySelector("#generate");
-var uppercase, lowercase, special, numeric, length, possibleChars;
+// var uppercase, lowercase, special, numeric, length, possibleChars;
 //make variables that are strings containing every letter possiblity
 var numbers = "1234567890"
 var lowercase = "abcdefghijklmnopqrstuvwxyz"
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var specialchar = "!@#$%^&*(){}[]+<>/,."
-
+var special = "!@#$%^&*(){}[]+<>/,."
+var length = "8-128"
+var possibleChars = ""
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -15,25 +17,9 @@ function writePassword() {
   passwordText.value = password;
 
 }
-// var array = [1,2,3,4,5,6]
-
-// for(i=(array.length-1);i>0;i--){
-//   array[i]
-// }
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
-// Browser character set
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// document.getElementById.onclick("#generate").questions();
 
-
-
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
 function generatePassword() {
   uppercase = confirm("Do you want Uppercase Letters?");
   lowercase = confirm("Do you want lowercase letters?");
@@ -42,19 +28,34 @@ function generatePassword() {
   length = +prompt("Choose between 8 and 128 Characters");
 
   if (length < 8 && length > 128) {
-    return alert("password MUST be between 8 and 129 characters")
+    return alert("password MUST be between 8 and 128 characters")
+  }
+  if (length > 8 && length < 129 ) {
+
   }
   if (numeric) {
     possibleChars = possibleChars + numbers
   }
+  if (uppercase) {
+    possibleChars = possibleChars + uppercase
+  }
+  if (lowercase) {
+    possibleChars = possibleChars + lowercase
+  }
+  if (special) {
+    possibleChars = possibleChars + special
+  }
+}
   //make if statements for the rest of the possibilities
+  }
   var generatedPassword = "";
   for (i = 0; i < length; i++) {
     generatedPassword += possibleChars[Math.floor(Math.random() * possibleChars.length)]
+   return generatedPassword
   }
-  return generatedPassword;
-
 }
+
+
 // WHEN prompted for the length of the password
 // WHEN prompted for the length of the password
 // WHEN prompted for the length of the password
@@ -90,3 +91,13 @@ function generatePassword() {
 
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
+// Browser character set
+// GIVEN I need a new, secure password
+// WHEN I click the button to generate a password
+// THEN I am presented with a series of prompts for password criteria
+// document.getElementById.onclick("#generate").questions();
+
+
+
+// WHEN prompted for password criteria
+// THEN I select which criteria to include in the password
